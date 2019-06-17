@@ -1,18 +1,20 @@
 resource "aws_subnet" "subnet" {
   count = 1
-  cidr_block        = "${cidrsubnet("${var.cidr_block}", 8, count.index)}"
+  cidr_block        = "${cidrsubnet("${var.cidr-block}", 8, count.index)}"
   vpc_id            = "${aws_vpc.vpc.id}"
 
-  # tags = "${merge(
-  #     local.default_tags,
-  #     map("Name", "${local.common_name_prefix}"),
-  #   )}"
+  tags = {
+  Name = "terraform-sblug-subnet"
+  }
 }
 
-resource "aws_security_group" "allow_all" {
-  name        = "node-${var.environment}-sg"
-  description = "Security group for all nodes in the cluster"
+resource "aws_security_group" "sg" {
+  name        = "${aws_vpc.vpc.id}-sg"
+  description = "Security group for all EC2 in the VPC"
   vpc_id      = "${aws_vpc.vpc.id}"
+  tags = {
+  Name = "terraform-sblug-sg"
+  }
 
   egress {
     from_port   = 0

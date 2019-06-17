@@ -1,9 +1,8 @@
 resource "aws_vpc" "vpc" {
-  cidr_block = "${var.cidr_block}"
+  cidr_block = "${var.cidr-block}"
   enable_dns_hostnames = true
-    
-    # tags = "${merge(
-    #   local.default_tags,
-    #   map("Name", "${local.common_name_prefix}"),
-    # )}"
+
+  tags = {
+  Name = "terraform-sblug-vpc"
+  }
 }
