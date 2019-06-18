@@ -7,7 +7,7 @@ resource "aws_route_table" "rt" {
   }
 
   tags = {
-  Name = "terraform-sblug-rt"
+  Name = "terraform-test-sblug-rt"
   }
 }
 
