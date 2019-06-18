@@ -3,6 +3,6 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true
 
   tags = {
-  Name = "terraform-sblug-vpc"
+  Name = "terraform-test-sblug-vpc"
   }
 }
