@@ -4,7 +4,7 @@ resource "aws_subnet" "subnet" {
   vpc_id            = "${aws_vpc.vpc.id}"
 
   tags = {
-  Name = "terraform-sblug-subnet"
+  Name = "terraform-test-sblug-subnet"
   }
 }
 
